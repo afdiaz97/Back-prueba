@@ -5,6 +5,8 @@ from django.contrib.auth import authenticate
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from .models import Cliente
+from .serializers import ClienteSerializer
+
 import logging
 
 logger = logging.getLogger(__name__)
@@ -27,30 +29,33 @@ class Clientes(APIView):
     permission_classes = [IsAuthenticated]
     def post(self,request):
         try:
-            username=request.data["username"]
-            first_name=request.data["first_name"]
-            last_name=request.data["last_name"]
+            nombre=request.data["nombre"]
             direccion=request.data["direccion"]
             telefono=request.data["telefono"]
             cedula=request.data["cedula"]
-            password=request.data["password"]
+            email=request.data["email"]
         except KeyError as e:
-            return Response({"mesnaje":f"Por favor ingresar el parametro {e}"},status=400)
+            return Response({"menaaje":f"Por favor ingresar el parametro {e}"},status=400)
         try:
             user=Cliente.objects.create(
-                username=username,
-                first_name=first_name,
-                last_name=last_name,
+                nombre=nombre,
                 direccion=direccion,
                 telefono=telefono,
-                cedula=cedula
+                cedula=cedula,
+                email=email
             )
-            user.set_password(password)
-            user.save()
-            return Response({"Mensaje":"usuario creado correctamente","username":user.username},status=201)
+            return Response({"Mensaje":"usuario creado correctamente","usuario":user.cedula},status=201)
         except:
             logging.exception("error en la creacion del usuario")
             return Response({"Mensaje":"No fue posible crear el usuario"},status=500)
+    def get(self,request):
+        try:
+            clientes=Cliente.objects.all()
+            serializer=ClienteSerializer(clientes, many=True)
+            return Response(serializer.data,status=200)
+        except Exception as e:
+            logger.exception("Error obteniendo los clientes")
+            return Response({"Mensaje":"No fue posible obtener los clientes"},status=500)
         
 
 

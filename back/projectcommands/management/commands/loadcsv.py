@@ -41,14 +41,10 @@ def createuser(user):
         cedula=user["cedula"]
         telefono=user["telefono"]
         direccion=user["direccion"]
-        usuario = Cliente.objects.create(
+        usuario = User.objects.create(
                     username=username,
-                    email=email,
-                    cedula=cedula,
                     is_staff=True,
                     is_superuser=True,
-                    telefono=telefono,
-                    direccion=direccion
                 )
         usuario.set_password(password)
         usuario.save()
