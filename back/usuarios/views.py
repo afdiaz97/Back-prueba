@@ -47,7 +47,7 @@ class Clientes(APIView):
             )
             user.set_password(password)
             user.save()
-            return Response({"Mensaje":"usuario creado correctamente","username":user.username},status=200)
+            return Response({"Mensaje":"usuario creado correctamente","username":user.username},status=201)
         except:
             logging.exception("error en la creacion del usuario")
             return Response({"Mensaje":"No fue posible crear el usuario"},status=500)

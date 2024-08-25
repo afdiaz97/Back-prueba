@@ -536,3 +536,158 @@ AttributeError: type object 'Cliente' has no attribute 'objects'
 2024-08-25 05:01:36,577 INFO [MainProcess:79] django.utils.autoreload line: 668 Watching for file changes with StatReloader
 2024-08-25 05:01:48,162 INFO [MainProcess:79] django.utils.autoreload line: 266 /usr/src/app/usuarios/urls.py changed, reloading.
 2024-08-25 05:01:50,213 INFO [MainProcess:81] django.utils.autoreload line: 668 Watching for file changes with StatReloader
+2024-08-25 05:38:30,672 INFO [MainProcess:81] django.utils.autoreload line: 266 /usr/src/app/usuarios/views.py changed, reloading.
+2024-08-25 05:38:33,474 INFO [MainProcess:86] django.utils.autoreload line: 668 Watching for file changes with StatReloader
+2024-08-25 05:42:06,004 INFO [MainProcess:86] django.utils.autoreload line: 266 /usr/src/app/usuarios/urls.py changed, reloading.
+2024-08-25 05:42:08,677 INFO [MainProcess:88] django.utils.autoreload line: 668 Watching for file changes with StatReloader
+2024-08-25 05:43:13,789 INFO [MainProcess:88] django.utils.autoreload line: 266 /usr/src/app/back/settings.py changed, reloading.
+2024-08-25 05:43:15,738 INFO [MainProcess:96] django.utils.autoreload line: 668 Watching for file changes with StatReloader
+2024-08-25 05:43:32,821 INFO [MainProcess:96] django.utils.autoreload line: 266 /usr/src/app/back/settings.py changed, reloading.
+2024-08-25 05:43:35,081 INFO [MainProcess:98] django.utils.autoreload line: 668 Watching for file changes with StatReloader
+2024-08-25 05:46:21,819 WARNING [MainProcess:98] django.request line: 248 Not Found: /producto
+2024-08-25 05:46:37,211 INFO [MainProcess:98] django.utils.autoreload line: 266 /usr/src/app/back/urls.py changed, reloading.
+2024-08-25 05:46:40,335 INFO [MainProcess:114] django.utils.autoreload line: 668 Watching for file changes with StatReloader
+2024-08-25 05:49:49,784 WARNING [MainProcess:114] django.request line: 248 Bad Request: /producto
+2024-08-25 05:50:56,888 WARNING [MainProcess:114] django.request line: 248 Bad Request: /producto
+2024-08-25 05:51:12,020 ERROR [MainProcess:114] products.views line: 37 Error creando producto
+Traceback (most recent call last):
+  File "/usr/src/app/products/views.py", line 28, in post
+    producto=Producto.objects.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 677, in create
+    obj = self.model(**kwargs)
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 567, in __init__
+    raise TypeError(
+TypeError: Producto() got unexpected keyword arguments: 'codigo'
+2024-08-25 05:51:12,030 ERROR [MainProcess:114] django.request line: 248 Internal Server Error: /producto
+2024-08-25 05:52:02,378 INFO [MainProcess:114] django.utils.autoreload line: 266 /usr/src/app/products/views.py changed, reloading.
+2024-08-25 05:52:03,479 INFO [MainProcess:118] django.utils.autoreload line: 668 Watching for file changes with StatReloader
+2024-08-25 05:52:10,483 ERROR [MainProcess:118] products.views line: 37 Error creando producto
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.NotNullViolation: null value in column "valor_iva" of relation "products_producto" violates not-null constraint
+DETAIL:  Failing row contains (1aaa2, prueba producto, 2000.90, f, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/app/products/views.py", line 28, in post
+    producto=Producto.objects.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 891, in save
+    self.save_base(
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 997, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 1160, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 1201, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.12/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: null value in column "valor_iva" of relation "products_producto" violates not-null constraint
+DETAIL:  Failing row contains (1aaa2, prueba producto, 2000.90, f, null).
+
+2024-08-25 05:52:10,496 ERROR [MainProcess:118] django.request line: 248 Internal Server Error: /producto
+2024-08-25 05:52:41,116 INFO [MainProcess:118] django.utils.autoreload line: 266 /usr/src/app/products/models.py changed, reloading.
+2024-08-25 05:52:42,252 INFO [MainProcess:122] django.utils.autoreload line: 668 Watching for file changes with StatReloader
+2024-08-25 05:53:06,806 WARNING [MainProcess:122] django.request line: 248 Bad Request: /producto
+2024-08-25 05:53:23,322 WARNING [MainProcess:122] django.request line: 248 Bad Request: /producto
+2024-08-25 05:53:30,646 WARNING [MainProcess:122] django.request line: 248 Bad Request: /producto
+2024-08-25 05:54:44,738 ERROR [MainProcess:122] products.views line: 37 Error creando producto
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "products_producto_pkey"
+DETAIL:  Key ("Codigo")=(1aaa2) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/app/products/views.py", line 28, in post
+    producto=Producto.objects.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 891, in save
+    self.save_base(
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 997, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 1160, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 1201, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.12/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "products_producto_pkey"
+DETAIL:  Key ("Codigo")=(1aaa2) already exists.
+
+2024-08-25 05:54:44,748 ERROR [MainProcess:122] django.request line: 248 Internal Server Error: /producto
+2024-08-25 05:55:00,784 INFO [MainProcess:122] django.utils.autoreload line: 266 /usr/src/app/products/views.py changed, reloading.
+2024-08-25 05:55:02,294 INFO [MainProcess:138] django.utils.autoreload line: 668 Watching for file changes with StatReloader
