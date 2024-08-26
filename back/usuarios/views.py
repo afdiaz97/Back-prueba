@@ -6,6 +6,8 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from .models import Cliente
 from .serializers import ClienteSerializer
+from django.db import IntegrityError
+
 
 import logging
 
@@ -45,6 +47,8 @@ class Clientes(APIView):
                 email=email
             )
             return Response({"Mensaje":"usuario creado correctamente","usuario":user.cedula},status=201)
+        except IntegrityError:
+            return Response({"mensaje":f"Ya esta registrado un cliente con la cedula {cedula}"},status=400)
         except:
             logging.exception("error en la creacion del usuario")
             return Response({"Mensaje":"No fue posible crear el usuario"},status=500)

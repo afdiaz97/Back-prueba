@@ -7,4 +7,4 @@ class Producto(models.Model):
     iva=models.BooleanField("Tiene iva")
     valor_iva=models.DecimalField(max_digits=4, decimal_places=2 , null=True)
     def __str__(self):
-        return self.codigo + " "+self.nombre
+        return self.Codigo + " "+self.nombre
