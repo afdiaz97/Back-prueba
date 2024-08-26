@@ -4,5 +4,6 @@ app_name = 'usuarios'
 
 urlpatterns = [
     path('ventas', Ventas.as_view(), name='ventas'),
-    path('detailventa',Addventa.as_view(),name="detail")
+    path('detailventa',Addventa.as_view(),name="detail"),
+    path('detail/<int:id>/',DetailVenta.as_view(),name='detailventa')
 ]

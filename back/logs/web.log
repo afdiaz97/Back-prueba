@@ -2102,3 +2102,132 @@ django.core.exceptions.ImproperlyConfigured: Field name `id_venta` is not valid 
 2024-08-26 00:00:24,479 INFO [MainProcess:51] django.utils.autoreload line: 668 Watching for file changes with StatReloader
 2024-08-26 00:01:05,052 INFO [MainProcess:51] django.utils.autoreload line: 266 /usr/src/app/ventas/views.py changed, reloading.
 2024-08-26 00:01:06,223 INFO [MainProcess:55] django.utils.autoreload line: 668 Watching for file changes with StatReloader
+2024-08-26 00:09:31,182 WARNING [MainProcess:55] django.request line: 248 Unauthorized: /login
+2024-08-26 00:09:32,534 WARNING [MainProcess:55] django.request line: 248 Unauthorized: /login
+2024-08-26 00:09:54,777 WARNING [MainProcess:55] django.request line: 248 Unauthorized: /cliente
+2024-08-26 00:09:54,784 WARNING [MainProcess:55] django.request line: 248 Unauthorized: /cliente
+2024-08-26 00:09:56,555 WARNING [MainProcess:55] django.request line: 248 Unauthorized: /cliente
+2024-08-26 00:09:56,559 WARNING [MainProcess:55] django.request line: 248 Unauthorized: /cliente
+2024-08-26 00:09:59,169 WARNING [MainProcess:55] django.request line: 248 Unauthorized: /cliente
+2024-08-26 00:10:00,256 WARNING [MainProcess:55] django.request line: 248 Unauthorized: /cliente
+2024-08-26 00:10:01,127 WARNING [MainProcess:55] django.request line: 248 Unauthorized: /cliente
+2024-08-26 00:10:01,397 WARNING [MainProcess:55] django.request line: 248 Unauthorized: /cliente
+2024-08-26 00:10:02,072 WARNING [MainProcess:55] django.request line: 248 Unauthorized: /cliente
+2024-08-26 00:10:02,773 WARNING [MainProcess:55] django.request line: 248 Unauthorized: /cliente
+2024-08-26 00:10:02,781 WARNING [MainProcess:55] django.request line: 248 Unauthorized: /cliente
+2024-08-26 00:13:15,019 INFO [MainProcess:55] django.utils.autoreload line: 266 /usr/src/app/ventas/views.py changed, reloading.
+2024-08-26 00:13:16,304 INFO [MainProcess:68] django.utils.autoreload line: 668 Watching for file changes with StatReloader
+2024-08-26 00:17:13,503 WARNING [MainProcess:68] django.request line: 248 Unauthorized: /producto
+2024-08-26 00:17:13,510 WARNING [MainProcess:68] django.request line: 248 Unauthorized: /producto
+2024-08-26 00:17:15,273 WARNING [MainProcess:68] django.request line: 248 Unauthorized: /cliente
+2024-08-26 00:17:15,277 WARNING [MainProcess:68] django.request line: 248 Unauthorized: /cliente
+2024-08-26 00:17:16,145 WARNING [MainProcess:68] django.request line: 248 Unauthorized: /producto
+2024-08-26 00:17:16,150 WARNING [MainProcess:68] django.request line: 248 Unauthorized: /producto
+2024-08-26 00:17:17,460 WARNING [MainProcess:68] django.request line: 248 Unauthorized: /cliente
+2024-08-26 00:17:17,465 WARNING [MainProcess:68] django.request line: 248 Unauthorized: /cliente
+2024-08-26 00:17:18,124 WARNING [MainProcess:68] django.request line: 248 Unauthorized: /producto
+2024-08-26 00:17:18,131 WARNING [MainProcess:68] django.request line: 248 Unauthorized: /producto
+2024-08-26 00:17:18,681 WARNING [MainProcess:68] django.request line: 248 Unauthorized: /cliente
+2024-08-26 00:17:17,428 WARNING [MainProcess:68] django.request line: 248 Unauthorized: /cliente
+2024-08-26 00:17:17,500 WARNING [MainProcess:68] django.request line: 248 Unauthorized: /producto
+2024-08-26 00:17:17,508 WARNING [MainProcess:68] django.request line: 248 Unauthorized: /producto
+2024-08-26 00:17:18,673 WARNING [MainProcess:68] django.request line: 248 Unauthorized: /cliente
+2024-08-26 00:17:18,678 WARNING [MainProcess:68] django.request line: 248 Unauthorized: /cliente
+2024-08-26 00:17:19,090 WARNING [MainProcess:68] django.request line: 248 Unauthorized: /producto
+2024-08-26 00:17:19,627 WARNING [MainProcess:68] django.request line: 248 Unauthorized: /producto
+2024-08-26 00:27:51,865 WARNING [MainProcess:68] django.request line: 248 Not Found: /clientes
+2024-08-26 00:32:51,861 WARNING [MainProcess:68] django.request line: 248 Not Found: /clientes
+2024-08-26 00:32:51,878 WARNING [MainProcess:68] django.request line: 248 Not Found: /clientes
+2024-08-26 00:43:58,329 WARNING [MainProcess:68] django.request line: 248 Not Found: /productos
+2024-08-26 00:43:58,337 WARNING [MainProcess:68] django.request line: 248 Not Found: /productos
+2024-08-26 00:44:10,426 WARNING [MainProcess:68] django.request line: 248 Not Found: /productos
+2024-08-26 00:44:10,436 WARNING [MainProcess:68] django.request line: 248 Not Found: /productos
+2024-08-26 01:43:36,530 INFO [MainProcess:68] django.utils.autoreload line: 266 /usr/src/app/ventas/urls.py changed, reloading.
+2024-08-26 01:43:38,908 INFO [MainProcess:97] django.utils.autoreload line: 668 Watching for file changes with StatReloader
+2024-08-26 01:43:45,871 ERROR [MainProcess:97] ventas.views line: 92 Error al mostrar el detalle de la venta
+Traceback (most recent call last):
+  File "/usr/src/app/ventas/views.py", line 82, in get
+    detalles_data = DetailSerializer(detalles, many=True).data
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 795, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 714, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 523, in to_representation
+    for field in fields:
+                 ^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 384, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 372, in fields
+    for key, value in self.get_fields().items():
+                      ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 1103, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 1249, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 1367, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `valor producto` is not valid for model `Detail_venta` in `ventas.serializers.DetailSerializer`.
+2024-08-26 01:43:45,889 ERROR [MainProcess:97] django.request line: 248 Internal Server Error: /detail/2/
+2024-08-26 01:44:37,404 INFO [MainProcess:97] django.utils.autoreload line: 266 /usr/src/app/ventas/serializers.py changed, reloading.
+2024-08-26 01:44:39,819 INFO [MainProcess:103] django.utils.autoreload line: 668 Watching for file changes with StatReloader
+2024-08-26 01:44:41,934 ERROR [MainProcess:103] ventas.views line: 92 Error al mostrar el detalle de la venta
+Traceback (most recent call last):
+  File "/usr/src/app/ventas/views.py", line 82, in get
+    detalles_data = DetailSerializer(detalles, many=True).data
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 795, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 714, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 538, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 523, in to_representation
+    for field in fields:
+                 ^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 384, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 372, in fields
+    for key, value in self.get_fields().items():
+                      ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 1103, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 1249, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/rest_framework/serializers.py", line 1367, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `valor` is not valid for model `Cliente` in `ventas.serializers.ProductoSerializer`.
+2024-08-26 01:44:41,946 ERROR [MainProcess:103] django.request line: 248 Internal Server Error: /detail/2/
+2024-08-26 01:45:17,677 INFO [MainProcess:103] django.utils.autoreload line: 266 /usr/src/app/ventas/serializers.py changed, reloading.
+2024-08-26 01:45:20,401 INFO [MainProcess:109] django.utils.autoreload line: 668 Watching for file changes with StatReloader
+2024-08-26 01:51:49,698 INFO [MainProcess:109] django.utils.autoreload line: 266 /usr/src/app/ventas/views.py changed, reloading.
+2024-08-26 01:51:51,993 INFO [MainProcess:119] django.utils.autoreload line: 668 Watching for file changes with StatReloader
+2024-08-26 02:02:12,587 INFO [MainProcess:119] django.utils.autoreload line: 266 /usr/src/app/ventas/views.py changed, reloading.
+2024-08-26 02:02:15,496 INFO [MainProcess:135] django.utils.autoreload line: 668 Watching for file changes with StatReloader
+2024-08-26 02:06:01,892 INFO [MainProcess:135] django.utils.autoreload line: 266 /usr/src/app/ventas/views.py changed, reloading.
+2024-08-26 02:06:04,214 INFO [MainProcess:139] django.utils.autoreload line: 668 Watching for file changes with StatReloader
+2024-08-26 02:06:07,641 INFO [MainProcess:139] django.utils.autoreload line: 266 /usr/src/app/ventas/views.py changed, reloading.
+2024-08-26 02:06:07,626 INFO [MainProcess:141] django.utils.autoreload line: 668 Watching for file changes with StatReloader

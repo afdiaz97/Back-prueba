@@ -6,13 +6,15 @@ from .models import Venta,Detail_venta
 from products.models import Producto
 from usuarios.models import Cliente
 from django.db import IntegrityError
-from .serializers import VentaSerializer
+from .serializers import VentaSerializer,DetailSerializer
 
 import logging
 
 logger = logging.getLogger(__name__)
 
 class Ventas(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
     def post(self,request):
         try:
             cliente=request.data["cliente"]
@@ -42,6 +44,8 @@ class Ventas(APIView):
 
 
 class Addventa(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
     def post(self,request):
         try:
             venta=request.data["venta"]
@@ -67,6 +71,26 @@ class Addventa(APIView):
         except Exception as e:
             logger.exception("Error")
             return Response({"mensaje": f"No se pudo registrar el detalle de la venta"}, status=500)
+class DetailVenta(APIView):
+    def get(self, request, id):
+        try:
+            venta = Venta.objects.get(id_vents=id)
+            detalles = Detail_venta.objects.filter(venta=venta)
+
+            # Serializar la venta y los detalles del producto
+            venta_data = VentaSerializer(venta).data
+            detalles_data = DetailSerializer(detalles, many=True).data
+            
+            return Response({
+                "venta": venta_data,
+                "detalles": detalles_data
+            }, status=200)
+            
+        except Venta.DoesNotExist:
+            return Response({"mensaje": "Venta no encontrada"}, status=404)
+        except Exception as e:
+            logger.exception("Error al mostrar el detalle de la venta")
+            return Response({"mensaje": "No se pudo mostrar el detalle de la venta"}, status=500)
             
 def calculos_venta(producto,venta):
     try:
@@ -75,7 +99,8 @@ def calculos_venta(producto,venta):
         else:
             valoriva=0
         total=producto.valor+(valoriva*producto.valor)/100 
-        venta.total_venta += venta.total_venta+total
+        print ( venta.total_venta , total )
+        venta.total_venta += total
         venta.save()
         return (valoriva*producto.valor)/100 
     except Exception as e:

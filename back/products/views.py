@@ -11,6 +11,8 @@ logger = logging.getLogger(__name__)
 
 
 class Productos(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
     def post(self, request):
         try:
             codigo = request.data["codigo"]
